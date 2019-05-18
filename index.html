@@ -1,8 +1,286 @@
-<html>
-    <head>
-        <title>6114552385 ชนินทร์เกียรติ เฟื่องเพียร</title>
-    </head>
-    <body>
-        โค้ดที่อยู่ในนี้จะแสดงผลออกมาทางหน้าจอ
-    </body>
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       <div id="regions_div" style="width: 900px; height: 500px;"></div>
+   
+  <title>Document</title>
+ </head>
+ <body>
+
+<script>
+
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Count'],
+['Afghanistan', 84082],
+['Albania', 521],
+['Algeria', 17770],
+['Andorra', 7],
+['Angola', 3340],
+['Antigua and Barbuda', 3],
+['Argentina', 5585],
+['Armenia', 153],
+['Australia', 886],
+['Austria', 752],
+['Azerbaijan', 275],
+['Bahamas', 26],
+['Bahrain', 1253],
+['Bangladesh', 8330],
+['Barbados', 19],
+['Belarus', 93],
+['Belgium', 1029],
+['Belize', 51],
+['Benin', 56],
+['Bhutan', 46],
+['Bolivia', 2149],
+['Bosnia-Herzegovina', 1181],
+['Botswana', 58],
+['Brazil', 1926],
+['Brunei', 51],
+['Bulgaria', 368],
+['Burkina Faso', 356],
+['Burundi', 4258],
+['Cambodia', 1823],
+['Cameroon', 2429],
+['Canada', 630],
+['Central African Republic', 1804],
+['Chad', 582],
+['Chile', 16634],
+['China', 1603],
+['Colombia', 54278],
+['Comoros', 32],
+['Costa Rica', 406],
+['Croatia', 398],
+['Cuba', 223],
+['Cyprus', 837],
+['Czech Republic', 229],
+['Czechoslovakia', 62],
+['Democratic Republic of the Congo', 5370],
+['Denmark', 256],
+['Djibouti', 139],
+['Dominica', 30],
+['Dominican Republic', 583],
+['East Germany (GDR)', 229],
+['East Timor', 48],
+['Ecuador', 1405],
+['Egypt', 15591],
+['El Salvador', 34751],
+['Equatorial Guinea', 7],
+['Eritrea', 67],
+['Estonia', 115],
+['Ethiopia', 1021],
+['Falkland Islands', 8],
+['Fiji', 136],
+['Finland', 165],
+['France', 16675],
+['French Guiana', 50],
+['French Polynesia', 27],
+['Gabon', 57],
+['Gambia', 20],
+['Georgia', 1411],
+['Germany', 5015],
+['Ghana', 160],
+['Greece', 7983],
+['Grenada', 38],
+['Guadeloupe', 344],
+['Guatemala', 12785],
+['Guinea', 177],
+['Guinea-Bissau', 44],
+['Guyana', 133],
+['Haiti', 1442],
+['Honduras', 2205],
+['Hong Kong', 181],
+['Hungary', 281],
+['Iceland', 20],
+['India', 77011],
+['Indonesia', 5650],
+['International', 10],
+['Iran', 4345],
+['Iraq', 160429],
+['Ireland', 1903],
+['Israel', 13976],
+['Italy', 9847],
+['Ivory Coast', 531],
+['Jamaica', 269],
+['Japan', 2640],
+['Jordan', 803],
+['Kazakhstan', 198],
+['Kenya', 4833],
+['Kosovo', 1310],
+['Kuwait', 477],
+['Kyrgyzstan', 227],
+['Laos', 155],
+['Latvia', 106],
+['Lebanon', 14624],
+['Lesotho', 149],
+['Liberia', 210],
+['Libya', 14539],
+['Lithuania', 59],
+['Luxembourg', 99],
+['Macau', 191],
+['Macedonia', 786],
+['Madagascar', 175],
+['Malawi', 40],
+['Malaysia', 536],
+['Maldives', 151],
+['Mali', 3653],
+['Malta', 205],
+['Martinique', 70],
+['Mauritania', 116],
+['Mauritius', 14],
+['Mexico', 3328],
+['Moldova', 115],
+['Montenegro', 36],
+['Morocco', 185],
+['Mozambique', 2392],
+['Myanmar', 3441],
+['Namibia', 967],
+['Nepal', 8273],
+['Netherlands', 838],
+['New Caledonia', 226],
+['New Hebrides', 6],
+['New Zealand', 123],
+['Nicaragua', 12890],
+['Niger', 964],
+['Nigeria', 24420],
+['North Korea', 12],
+['North Yemen', 38],
+['Norway', 111],
+['Pakistan', 91548],
+['Panama', 792],
+['Papua New Guinea', 545],
+['Paraguay', 816],
+['Peru', 39267],
+['Philippines', 44240],
+['Poland', 255],
+['Portugal', 978],
+['Qatar', 53],
+['Republic of the Congo', 202],
+['Rhodesia', 423],
+['Romania', 40],
+['Russia', 14877],
+['Rwanda', 869],
+['Saudi Arabia', 2594],
+['Senegal', 844],
+['Serbia', 64],
+['Serbia-Montenegro', 47],
+['Seychelles', 22],
+['Sierra Leone', 576],
+['Singapore', 38],
+['Slovak Republic', 103],
+['Slovenia', 59],
+['Solomon Islands', 25],
+['Somalia', 27133],
+['South Africa', 13112],
+['South Korea', 252],
+['South Sudan', 1510],
+['South Vietnam', 6],
+['South Yemen', 7],
+['Soviet Union', 451],
+['Spain', 20842],
+['Sri Lanka', 20408],
+['St. Kitts and Nevis', 12],
+['St. Lucia', 12],
+['Sudan', 6072],
+['Suriname', 472],
+['Swaziland', 95],
+['Sweden', 942],
+['Switzerland', 709],
+['Syria', 14217],
+['Taiwan', 388],
+['Tajikistan', 1312],
+['Tanzania', 323],
+['Thailand', 24296],
+['Togo', 335],
+['Trinidad and Tobago', 161],
+['Tunisia', 701],
+['Turkey', 27935],
+['Turkmenistan', 13],
+['Uganda', 2380],
+['Ukraine', 10906],
+['United Arab Emirates', 164],
+['United Kingdom', 33422],
+['United States', 17647],
+['Uruguay', 607],
+['Uzbekistan', 93],
+['Vanuatu', 21],
+['Vatican City', 5],
+['Venezuela', 2030],
+['Vietnam', 63],
+['Wallis and Futuna', 6],
+['West Bank and Gaza Strip', 14554],
+['West Germany (FRG)', 3583],
+['Western Sahara', 32],
+['Yemen', 21743],
+['Yugoslavia', 1234],
+['Zaire', 357],
+['Zambia', 327],
+['Zimbabwe', 600]
+        ]);
+
+      var options = {};
+      //options['region'] = '035';
+      options['colorAxis']	=	{colors: ['#a0e7a0', 'green']}
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+
+	  </script>
+<br>
+
+
+22222222
+<div id="chart_div"></div>
+   <script>
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+function drawBasic() {
+          
+      var data = google.visualization.arrayToDataTable([
+     ['Year', 'Cambodia', 'Lao PDR', 'Malaysia', 'Myanmar', 'Thailand', 'Vietnam', 'World'],
+     [2013, 2.914, 3.686, 0.959, 4.209, 0.563, 1.947, 0],
+     [2014, 2.328, 2.865, 1.575, 3.314, -0.642, 1.948, 0],
+     [2015, 2.222, 2.540, 1.052, 2.633, 0.606, 2.327, 0],
+     [2016, 2.731, 2.964, 0.916, 2.512, 1.132, 2.650, 0],
+     [2017, 1.769, 1.700, 1.243, 1.928, 0.847, 1.897, 0],
+
+                   
+          
+      ]);
+     
+      var options = {
+        title: 'การก่อการร้ายระดับสากล ปี 1970-2017',
+        legend: { position: 'none' },
+        width: 800,
+        hAxis: {
+          title: 'เดือน'
+         },
+        vAxis: {
+          title: 'ยางแผ่นดิบท้องดิบท้องถิ่น'
+        }
+      };
+      var chart = new google.visualization.ColumnChart(
+        document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+    </script>
+
+ </body>
 </html>
