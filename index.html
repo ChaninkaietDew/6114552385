@@ -233,9 +233,22 @@
 ['Zimbabwe', 600]
         ]);
 
-      var options = {};
+      var options = {
+
+        
+        colorAxis:{colors: [ '#92AE85','#B1D4A1','#D1FABE','#ADAD84','#D3D4A1','#F9FABE'
+        
+        ]}
+	  
+	  
+	  
+	  };
       //options['region'] = '035';
-      options['colorAxis']	=	{colors: ['#a0e7a0', 'green']}
+      //options['colorAxis']	=	{colors: ['#a0e7a0', 'green']}
+	  
+
+	 // options['colorAxis']	=	{colors: ['#a0e7a0', 'green']}
+
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
@@ -246,34 +259,39 @@
 <br>
 
 
-22222222
-<div id="chart_div"></div>
+
+<div id="chart_div" style="width: 100%; height: 100%;"></div>
+
+<!-- <div id="deviation" style="width: 100%; height: 450px;"></div> -->
    <script>
 google.charts.load('current', {packages: ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawBasic);
 function drawBasic() {
           
       var data = google.visualization.arrayToDataTable([
-     ['Year', 'Cambodia', 'Lao PDR', 'Malaysia', 'Myanmar', 'Thailand', 'Vietnam', 'World'],
-     [2013, 2.914, 3.686, 0.959, 4.209, 0.563, 1.947, 0],
-     [2014, 2.328, 2.865, 1.575, 3.314, -0.642, 1.948, 0],
-     [2015, 2.222, 2.540, 1.052, 2.633, 0.606, 2.327, 0],
-     [2016, 2.731, 2.964, 0.916, 2.512, 1.132, 2.650, 0],
-     [2017, 1.769, 1.700, 1.243, 1.928, 0.847, 1.897, 0],
+['Year', 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'],
+['2014',21982,20821,23979,22051,26613,20981,26941,21056,20991,20738,18546,18868],
+['2015',25178,17763,18698,20461,21513,18383,19494,20850,16560,20670,18430,17939],
+['2016',18961,16992,17666,17231,21260,17983,18442,17429,16627,18576,16920,13746],
+['2013',13477,10503,13195,16198,17407,13896,19390,16163,14721,19879,19518,19583],
+['2017',14176,13203,15289,13111,18824,17131,15797,15692,13863,12776,13220,11437],
+['2012',11077,9003,9917,11679,13006,11639,12163,11525,9662,12239,10581,9059],
+
 
                    
           
       ]);
      
       var options = {
-        title: 'การก่อการร้ายระดับสากล ปี 1970-2017',
+        title: 'การก่อการร้ายระดับสากล ปี 2012-2017',
+		ticks: [2014,2015,2016,2013,2017,2012],
         legend: { position: 'none' },
         width: 800,
         hAxis: {
-          title: 'เดือน'
+          title: 'Year'
          },
         vAxis: {
-          title: 'ยางแผ่นดิบท้องดิบท้องถิ่น'
+          title: 'จำนวนการก่อคดี'
         }
       };
       var chart = new google.visualization.ColumnChart(
@@ -281,6 +299,191 @@ function drawBasic() {
       chart.draw(data, options);
     }
     </script>
+
+
+ <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Middle East & North Africa',     50474],
+          ['South Asia',      44974],
+          ['South America',  18978],
+          ['Sub-Saharan Africa', 17550],
+          ['Western Europe',    16639],
+          ['Southeast Asia', 12485],
+          ['Central America & Caribbean', 10344],
+          ['Eastern Europe', 5144],
+          ['North America', 3456],
+          ['East Asia', 802],
+          ['Central Asia', 563],
+          ['Australasia & Oceania', 282]
+        ]);
+        var options = {
+          title: 'สัดส่วนการก่อการร้ายระดับสากล',
+          sliceVisibilityThreshold: 0
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+ 
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+
+<script>
+google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+		['regions', 'ค่าแตกต่าง', 'ref'],
+		['Australasia & Oceania',-4,0],
+		['Central America & Caribbean',2,0],
+		['Central Asia',7,0],
+		['East Asia',-20,0],
+		['Eastern Europe',-550,0],
+		['Middle East & North Africa',79,0],
+		['North America',13,0],
+		['South America',-17,0],
+		['South Asia',-946,0],
+		['Southeast Asia',5,0],
+		['Sub-Saharan Africa',113,0],
+		['Western Europe',-60,0]
+        ]);
+        var options = {
+          title : 'เปรียบเทียบการก่อการร้ายระดับสากล ปี 2016 และ 2015',
+          vAxis: {title: ''},
+          hAxis: {title: 'โซนทวีป'},
+          seriesType: 'bars',
+          series: {1: {type: 'line'}}
+        };
+        var chart = new google.visualization.ComboChart(document.getElementById('devichart_div'));
+        chart.draw(data, options);
+      }
+</script>
+       <div id="devichart_div" style="width: 900px; height: 500px;"></div>
+
+
+       <div id="top_x_div" style="width: 800px; height: 600px;"></div>
+
+
+
+<script> google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['ช่วงจำนวนการก่อคดี', 'จำนวน'],
+          ['0-11785',175],
+		  ['11786-23571',17],
+		  ['23572-35357',6],
+		  ['35358-47142',2],
+		  ['47142-58928',1],
+		  ['58929-70714',0],
+		  ['70715-82500',1],
+		  ['82501-94285',2]
+        ]);
+
+        var options = {
+			hAxis: {
+            title: 'Provider'
+          },
+          vAxis: {
+            title: 'ความถี่รวมของประเทศ'
+          },
+          width: 800,
+          legend: { position: 'none' },
+          chart: {
+            title: 'การก่อการร้ายระดับสากลปี 2531-2560 (ประเทศ)',
+            subtitle: '' },
+          axes: {
+            x: {
+              0: { side: 'bottom', label: 'ช่วงจำนวนการก่อคดี (ประเทศ)'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      };</script>
+
+
+
+<script type="text/javascript">      
+			google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['จำนวนรวมการก่อคดี', 'รวมจำนวนรวมการใช้อาวุธ'],
+  [9685,651],
+[7137,471],
+[9631,568],
+[7141,473],
+[8870,581],
+[11082,740],
+[13565,923],
+[20204,1319],
+[23080,1526],
+[40386,2662],
+[40768,2662],
+[39507,2586],
+[38852,2544],
+[43141,2870],
+[51997,3495],
+[42839,2915],
+[45759,2860],
+[49831,3183],
+[58129,3721],
+[67277,4324],
+[60478,3887],
+[73517,4683],
+[77019,5071],
+[54664,3456],
+[48234,3081],
+[47695,3058],
+[49316,3197],
+[13986,934],
+[20241,1395],
+[27717,1814],
+[29866,1906],
+[18191,1333],
+[19195,1278],
+[17626,1166],
+[30425,2017],
+[38597,2758],
+[47794,3242],
+[75695,4805],
+[74025,4721],
+[75309,4826],
+[77427,5076],
+[131550,8522],
+[193930,12036],
+[263567,16903],
+[235939,14965],
+[211833,13587],
+[174519,10900],
+        ]);
+
+        var options = {
+          title: 'จำนวนรวมการก่อคดี vs. รวมจำนวนรวมการใช้อาวุธ',
+          hAxis: {title: 'จำนวนรวมการก่อคดี', minValue: 0, maxValue: 1000},
+          vAxis: {title: 'รวมจำนวนรวมการใช้อาวุธ', minValue: 0, maxValue: 800},
+          legend: 'none',
+          trendlines: { 0: {} }
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_divBar'));
+
+        chart.draw(data, options);
+      }</script>
+       <div id="chart_divBar" style="width: 900px; height: 500px;"></div>
+   
+
 
  </body>
 </html>
